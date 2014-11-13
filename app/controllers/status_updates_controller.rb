@@ -25,6 +25,11 @@ class StatusUpdatesController < ApplicationController
     redirect_to @status_update
   end
 
+  def destroy
+    @status_update.destroy
+    redirect_to root_path
+  end
+
   private
 
     def get_status_update
