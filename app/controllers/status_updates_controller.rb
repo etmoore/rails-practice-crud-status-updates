@@ -12,8 +12,11 @@ class StatusUpdatesController < ApplicationController
   end
 
   def update
-    @status_update.update(status_update_params)
-    redirect_to @status_update, notice: "Status update successfully updated"
+    if @status_update.update(status_update_params)
+      redirect_to @status_update, notice: "Status update successfully updated"
+    else
+      render :edit
+    end
   end
 
   def new
