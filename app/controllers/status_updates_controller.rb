@@ -16,6 +16,15 @@ class StatusUpdatesController < ApplicationController
     redirect_to @status_update
   end
 
+  def new
+    @status_update = StatusUpdate.new
+  end
+
+  def create
+    @status_update = StatusUpdate.create(status_update_params)
+    redirect_to @status_update
+  end
+
   private
 
     def get_status_update
