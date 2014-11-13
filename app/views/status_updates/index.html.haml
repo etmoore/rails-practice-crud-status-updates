@@ -1,0 +1,13 @@
+%h1 Status Updates
+%table
+  %thead
+    %tr
+      %th User
+      %th Status
+      %th Likes
+  %tbody
+    - @status_updates.each do |status_update|
+      %tr
+        %td= status_update.user
+        %td= status_update.status
+        %td= status_update.likes
