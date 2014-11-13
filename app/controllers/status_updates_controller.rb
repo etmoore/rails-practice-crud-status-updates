@@ -8,6 +8,14 @@ class StatusUpdatesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    @status_update.update(status_update_params)
+    redirect_to @status_update
+  end
+
   private
 
     def get_status_update
