@@ -13,7 +13,7 @@ class StatusUpdatesController < ApplicationController
 
   def update
     @status_update.update(status_update_params)
-    redirect_to @status_update
+    redirect_to @status_update, notice: "Status update successfully updated"
   end
 
   def new
@@ -21,13 +21,17 @@ class StatusUpdatesController < ApplicationController
   end
 
   def create
-    @status_update = StatusUpdate.create(status_update_params)
-    redirect_to @status_update
+    @status_update = StatusUpdate.new(status_update_params)
+    if @status_update.save
+      redirect_to @status_update, notice: "Status update successfully created"
+    else
+      render :new
+    end
   end
 
   def destroy
     @status_update.destroy
-    redirect_to root_path
+    redirect_to root_path, notice: "Status update successfully deleted"
   end
 
   private
